@@ -1,0 +1,52 @@
+<div class="new-task-container">
+    <input type="text" class="todo-input" placeholder="Add a new task.." name="task" [(ngModel)]="addTaskValue">
+    <button type="button" (click)="addTask()" class="add-button">+ New Task</button>
+
+</div>
+
+<div class="todo-item" *ngFor="let task of taskArr">
+    <div class="todo-item-left">
+        <div class="todo-item-label">{{task.task_name}}</div>
+    </div>
+    <div class="remove-item">
+        <button class="edit-button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="call(task)">Edit</button>
+        <button (click)="deleteTask(task)">X</button>
+    </div>
+</div>
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="new-task-container">
+                <input type="text" class="todo-input" placeholder="Edit me..." name="task" [(ngModel)]="editTaskValue">
+                <button type="button" (click)="editTask()" data-bs-dismiss="modal" class="add-button">Update Task</button>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<div class="extra-container">
+    <div>
+        <button class="active">All</button>
+        <button>Active</button>
+        <button>Completed</button>
+    </div>
+
+</div>
